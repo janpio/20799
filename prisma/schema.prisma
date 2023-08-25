@@ -3,13 +3,13 @@ generator client {
 }
 
 datasource db {
-    provider = "mysql"
-    url      = env("DATABASE_URL")
+    provider = "sqlite"
+    url      = "file:foo.db"
 }
 
 model Connection {
     id                                   Int    @id @default(autoincrement())
-    uid                                  String @unique @db.Char(26)
+    uid                                  String @unique
     ownerId                              Int
     atlassianOnPremiseOAuthCredentialsId Int?   @unique
     bitbucketCloudOAuthCredentialsId     Int?   @unique
